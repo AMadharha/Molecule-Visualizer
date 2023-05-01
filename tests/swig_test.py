@@ -5,9 +5,9 @@ import molecule
 mol = molecule.molecule()
 
 # create 3 atoms
-mol.append_atom("O", 2.5369, -0.1550, 0.0000)
-mol.append_atom("H", 3.0739, 0.1550, 0.0000) 
-mol.append_atom("H", 2.0000, 0.1550, 0.0000)
+mol.append_atom('O', 2.5369, -0.1550, 0.0000)
+mol.append_atom('H', 3.0739, 0.1550, 0.0000) 
+mol.append_atom('H', 2.0000, 0.1550, 0.0000)
 
 # caution atom references in append_bond start at 1 NOT 0
 mol.append_bond(1, 2, 1)
