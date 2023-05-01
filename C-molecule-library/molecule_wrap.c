@@ -3439,8 +3439,8 @@ SWIGINTERN void molecule_append_atom(struct molecule *self,char element[3],doubl
     }
 SWIGINTERN void molecule_append_bond(struct molecule *self,unsigned short a1,unsigned short a2,unsigned char epairs){
         bond b1;
-        b1.a1 = a1 - 1;
-        b1.a2 = a2 - 1;
+        b1.a1 = a1;
+        b1.a2 = a2;
         b1.atoms = self->atoms;
         b1.epairs = epairs;
         compute_coords(&b1);
