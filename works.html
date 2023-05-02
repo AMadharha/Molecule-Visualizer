@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="css/styles.css">
+        <title>Home</title>
+    </head>
+    <body> 
+        <header>
+            <img class="logo" src="images/logo.png" alt="molecule logo">
+            <nav>
+                <ul class="nav_links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="works.html">How it Works</a></li>
+                </ul>
+            </nav>
+            <a class="cta" href="#"><button>Visualizer</button></a>
+        </header>
+        <h1>How it Works</h1>
+        <p>
+            This is a technical description of how the visualizer works for those interested in the implementation details. If this bores you, feel free to skip this and check out the visualizer!
+        </p>
+        <p>
+            At the lowest level, I wrote a C library that implements a number of functions to represent and manipulate molecules. This includes editing atoms, editing bonds, calculating bond coordinates, allocating memory to molecules, adding atoms and bonds to molecules, etc.
+        </p>
+        <p>
+            Then, I created a Python library from the C code. <code>SWIG</code> is a toolkit that is used to interface compiled languages with scripting languages. It utilizes the interface file molecule.i to create the Python library.
+        </p>
+        <p>
+            To use the newly created Python library generated from the low level C code, the module <code>mol_display.py</code> is used. This module is used to parse SDF files and output SVG files. The database has all the elements on the periodic table in it, so there is no need to worry if a SDF file contains elements unknown to the visualizer. The SDF containing molecule information is put into the database to be remembered forever, and can be visualized without the SDF file when you come back to the site. The Python code connects all the bonds to the correct atoms and layers the bonds and atoms based off of the z values found in the SDF file.
+        </p>
+        <p>
+            Once the svg is created, it is shown on the page to be analyzed!
+        </p>
+    </body>
+</html>
