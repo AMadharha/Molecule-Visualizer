@@ -55,3 +55,22 @@ button {
 button:hover {
     background-color: rgba(0,136,169,1);
 }
+
+h1 {
+    color: white;
+    font-family: "Montserrat", sans-serif;
+    text-align: center;
+    margin-top: 40px;
+}
+
+p {
+    color: rgb(178,178,178);
+    font-family: "Montserrat", sans-serif;
+    margin-left: 275px;
+    margin-top: 30px;
+    margin-right: 275px;
+}
+
+p code {
+    color: rgb(211, 211, 89);
+}
