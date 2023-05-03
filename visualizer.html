@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="css/styles.css">
+        <title>Home</title>
+    </head>
+    <body> 
+        <header>
+            <img class="logo" src="images/logo.png" alt="molecule logo">
+            <nav>
+                <ul class="nav_links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="works.html">How it Works</a></li>
+                    <li><a href="https://github.com/AMadharha/Molecule-Visualizer" target=”_blank”>GitHub</a></li>
+                </ul>
+            </nav>
+            <a class="cta" href="visualizer.html"><button>Visualizer</button></a>
+        </header>
+        <h1>Visualizer</h1>
+        <h2>Upload a Molecule</h2>
+        <p>
+            If you dont see the molecule in the table below, go ahead and search for a SDF file and upload it here. Click <a href="https://www.ebi.ac.uk/chebi/init.do" target=”_blank”>here</a></li> for a potential website.
+        </p>
+        <div class="sdf-container">
+            <form id="sdf-form" action="/upload-sdf" method="post" enctype="multipart/form-data">
+                <label for="sdf_file" class="file-upload-label">Choose an SDF file</label>
+                <input type="file" id="sdf_file" name="sdf_file" accept=".sdf" required style="display: none;">
+                <span id="file-name" class="file-name">No file selected</span>
+                <button type="submit">Upload File</button>
+            </form>
+        </div>
+        <h2>Select a Molecule</h2>
+        <div class="table-wrapper">
+            <table id="molecule-select-table">
+              <!-- Table will be generated dynamically -->
+            </table>
+        </div>
+
+        <div id="center-container">
+            <div id="svg-container"></div>
+        </div>
+
+        <script src="js/script.js"></script>
+    </body>
+</html>
