@@ -1,4 +1,4 @@
-# export PYTHONPATH=../python:$PYTHONPATH
+# export PYTHONPATH=../python-svg:$PYTHONPATH
 import molecule
 
 # create a new molecule object
