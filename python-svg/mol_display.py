@@ -12,7 +12,7 @@ OFFSET_X = 500
 OFFSET_Y = 500
 
 class Atom:
-    def __init__(self, c_atom: atom):
+    def __init__(self, c_atom):
         """
         Initializes a new Atom object with the given atomic number.
 
@@ -41,7 +41,7 @@ class Atom:
         return '  <circle cx="%.2f" cy="%.2f" r="%d" fill="url(#%s)"/>\n' % (x, y, radi, color)
     
 class Bond:
-    def __init__(self, c_bond: bond):
+    def __init__(self, c_bond):
         """
         Initializes a new Bond object with the given bond type.
 
@@ -111,7 +111,7 @@ class Molecule(molecule):
 
         return HEADER + "".join(svg_strings) + FOOTER
     
-    def parse(self, file: IO):
+    def parse(self, file):
         """
         Parses a sdf data file and populates this Molecule object with Atom and Bond objects.
 

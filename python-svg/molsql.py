@@ -11,11 +11,11 @@ class Database:
             reset (bool, optional): If True, deletes the existing database file and creates
                 a new one. Defaults to False.
         """
-        self.conn = sqlite3.connect('../molecules.db')
+        self.conn = sqlite3.connect('molecules.db')
         if reset:
             self.conn.close()
-            os.remove('../molecules.db')
-            self.conn = sqlite3.connect('../molecules.db')
+            os.remove('molecules.db')
+            self.conn = sqlite3.connect('molecules.db')
 
     def create_tables(self):
         """
@@ -122,7 +122,7 @@ class Database:
         bond_id = self.conn.execute("SELECT last_insert_rowid()").fetchone()[0]
         self['MoleculeBond'] = (mol_id, bond_id)
 
-    def add_molecule(self, name: str, fp: IO):
+    def add_molecule(self, name: str, fp):
         """
         Adds a new molecule to the database with the given name and file pointer.
 
