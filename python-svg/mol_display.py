@@ -38,7 +38,7 @@ class Atom:
         radi = RADIUS[self.atom.element]
         color = ELEMENT_NAME[self.atom.element]
 
-        return '  <circle cx="%.2f" cy="%.2f" r="%d" fill="url(#%s)"/>\n' % (x, y, radi, color)
+        return f'  <circle cx="{x}" cy="{y}" r="{radi}" fill="url(#{color})"/>\n  <text x="{x-10}" y="{y+10}" font-size="24" font-family="Arial" fill="lightgrey">{self.atom.element}</text>'
     
 class Bond:
     def __init__(self, c_bond):
