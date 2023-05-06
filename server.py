@@ -86,4 +86,4 @@ def get_svg():
     return svg_content, 200, {"Content-Type": "image/svg+xml"}
 
 if __name__ == '__main__':
-    app.run()
+    app.run(port=8000)
