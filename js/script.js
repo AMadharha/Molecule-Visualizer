@@ -19,8 +19,9 @@ form.addEventListener('submit', function(event) {
     })
     .then(response => {
         if (response.ok) {
-            // Call the function to fetch molecules and update the table
             fetchMoleculesAndUpdateTable();
+            form.reset();
+            document.getElementById('file-name').textContent = 'No file selected';
         } else {
             throw new Error("Failed to upload SDF file");
         }
@@ -75,31 +76,19 @@ function fetchMoleculesAndUpdateTable() {
                         }
                     })
                     .then(svg => {
-                        // Get a reference to the SVG container element
                         const svgContainer = document.getElementById("svg-container");
-
-                        // Create a new DOM parser
                         const parser = new DOMParser();
-
-                        // Parse the SVG content
                         const svgDoc = parser.parseFromString(svg, "image/svg+xml");
-
-                        // Create a rect element for the background
                         const backgroundRect = svgDoc.createElementNS("http://www.w3.org/2000/svg", "rect");
 
-                        // Set the rect attributes
                         backgroundRect.setAttribute("width", "100%");
                         backgroundRect.setAttribute("height", "100%");
                         backgroundRect.setAttribute("fill", "rgb(200,200,200)");
-
-                        // Insert the background rect as the first child of the SVG element
                         svgDoc.documentElement.insertBefore(backgroundRect, svgDoc.documentElement.firstChild);
 
-                        // Serialize the modified SVG content
                         const serializer = new XMLSerializer();
                         const modifiedSvg = serializer.serializeToString(svgDoc.documentElement);
 
-                        // Set the innerHTML of the container to the modified SVG content
                         svgContainer.innerHTML = modifiedSvg;
                     })
                     .catch(error => console.error(error));
