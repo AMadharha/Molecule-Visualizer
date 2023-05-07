@@ -2,31 +2,30 @@ from molsql import Database
 import mol_display
 
 # Create a database and tables
-db = Database(reset=True)
+db = Database(reset=False)
 db.create_tables()
 
-db['Elements'] = (1, 'H', 'Hydrogen', 'FFFFFF', '050505', '020202', 25)
-db['Elements'] = (6, 'C', 'Carbon', '808080', '010101', '000000', 40)
-db['Elements'] = (7, 'N', 'Nitrogen', '0000FF', '000005', '000002', 40)
-db['Elements'] = (8, 'O', 'Oxygen', 'FF0000', '050000', '020000', 40)
-
-fp = open('water.sdf')
-db.add_molecule('Water', fp)
-
-fp = open ('caffeine.sdf')
-db.add_molecule('Caffeine', fp)
-
-fp = open ('CID.sdf')
-db.add_molecule('Isopentanol', fp)
+fp = open ('ChEBI_135595.sdf')
+db.add_molecule('something', fp)
 
 # Create svg
 mol_display.RADIUS = db.radius()
 mol_display.ELEMENT_NAME = db.element_name()
 mol_display.HEADER += db.radial_gradients()
 
-for molecule in ['Water', 'Caffeine', 'Isopentanol']: 
+for molecule in ['something']: 
     mol = db.load_mol(molecule)
     mol.sort()
-    fp = open(molecule + ".svg", "w")
-    fp.write(mol.svg())
-    fp.close()
+    name = molecule + ".svg"
+
+    # Write the initial SVG
+    with open(name, "w") as fp:
+        fp.write(mol.svg())
+
+    # Adjust the viewBox and update the SVG
+    updated_svg_content = mol.adjust_svg_viewbox(name)
+    clean_svg_content = mol.remove_namespace_prefix(updated_svg_content, "ns0:")
+
+    # Write the updated SVG content to the file
+    with open(name, "w") as fp:
+        fp.write(clean_svg_content)
