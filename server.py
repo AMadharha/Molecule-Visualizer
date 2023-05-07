@@ -86,10 +86,14 @@ def get_svg():
     svg_filename = molecule_name + ".svg"
     with open(svg_filename, "w") as fp:
         fp.write(mol.svg())
+    updated_svg_content = mol.adjust_svg_viewbox(svg_filename)
+    clean_svg_content = mol.remove_namespace_prefix(updated_svg_content, "ns0:")
+    with open(svg_filename, "w") as fp:
+        fp.write(clean_svg_content)
 
     with open(svg_filename, "r") as fp:
         svg_content = fp.read()
-
+    
     os.remove(svg_filename)
     return svg_content, 200, {"Content-Type": "image/svg+xml"}
 
