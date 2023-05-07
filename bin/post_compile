@@ -1,0 +1,4 @@
+#!/bin/bash
+
+echo "-----> Running setup.py to build the C extension"
+python setup.py build_ext --inplace
