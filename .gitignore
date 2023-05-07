@@ -5,6 +5,7 @@ __pycache__/
 
 # C extensions
 *.o
+_molecule.so
 
 # Distribution / packaging
 .Python
