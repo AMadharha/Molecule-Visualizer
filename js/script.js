@@ -79,16 +79,10 @@ function fetchMoleculesAndUpdateTable() {
                         const svgContainer = document.getElementById("svg-container");
                         const parser = new DOMParser();
                         const svgDoc = parser.parseFromString(svg, "image/svg+xml");
-                        const backgroundRect = svgDoc.createElementNS("http://www.w3.org/2000/svg", "rect");
-
-                        backgroundRect.setAttribute("width", "100%");
-                        backgroundRect.setAttribute("height", "100%");
-                        backgroundRect.setAttribute("fill", "rgb(200,200,200)");
-                        svgDoc.documentElement.insertBefore(backgroundRect, svgDoc.documentElement.firstChild);
-
+                        
                         const serializer = new XMLSerializer();
                         const modifiedSvg = serializer.serializeToString(svgDoc.documentElement);
-
+                        
                         svgContainer.innerHTML = modifiedSvg;
                     })
                     .catch(error => console.error(error));
