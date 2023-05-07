@@ -9,7 +9,7 @@ molecule_module = Extension('_molecule',
                                      os.path.join(c_molecule_directory, 'molecule.c')],
                             include_dirs=[sysconfig.get_path('include')],
                             extra_compile_args=['-Wall', '-std=c99', '-pedantic'],
-                            extra_link_args=[os.path.join(os.path.dirname(__file__), c_molecule_directory, 'libmol.so')],
+                            extra_link_args=[os.path.join(os.path.dirname(__file__), 'libmol.so')],
                             )
 
 setup(
