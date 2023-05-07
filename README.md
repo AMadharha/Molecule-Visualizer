@@ -21,4 +21,5 @@ The [Visualizer](http://moleculevisualizer.tech/visualizer.html) page is the cor
 * C (C99 Standard)
 * Python version 3.11.3
 * Flask version 2.3.2
+* Hosted on Heroku
 
