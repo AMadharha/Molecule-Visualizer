@@ -52,9 +52,17 @@ def upload_sdf():
             if "<NAME>" in line:
                 found = True
     fp = open("temp.sdf", "r")
+    found = False
 
     db = Database(reset=False)
     db.create_tables()
+    query = "SELECT * FROM Molecules WHERE NAME = ?"
+    result = db.conn.execute(query, (name,)).fetchone()
+
+    if result is not None:
+        os.remove("temp.sdf")
+        abort(400, description="Name already exists in the database")
+
     db.add_molecule(name, fp)
 
     os.remove("temp.sdf")
