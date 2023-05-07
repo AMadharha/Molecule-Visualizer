@@ -3,11 +3,11 @@ CFLAGS = -Wall -std=c99 -pedantic
 PYTHON_HEADER = /Library/Frameworks/Python.framework/Versions/3.11/include/python3.11
 PYTHON_LANG_LIB = /Library/Frameworks/Python.framework/Versions/3.11/lib
 
-all: molecule.o libmol molecule_wrap.c molecule_wrap.o ${OLDPWD}/_molecule.so
+all: molecule.o libmol.so molecule_wrap.c molecule_wrap.o ${OLDPWD}/_molecule.so
 
 molecule.o: molecule.c molecule.h
 	$(CC) $(CFLAGS) -c molecule.c -fPIC -o $@
-libmol: molecule.o
+libmol.so: molecule.o
 	$(CC) $(CFLAGS) molecule.o -shared -o $@
 molecule_wrap.c molecule.py: molecule.i
 	swig -python -outdir ${OLDPWD} molecule.i
