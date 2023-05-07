@@ -1,4 +1,7 @@
 #!/bin/bash
 
+echo "-----> Building libmol.so"
+make -C C-molecule-library libmol
+
 echo "-----> Running setup.py to build the C extension"
 python setup.py build_ext --inplace
