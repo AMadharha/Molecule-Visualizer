@@ -17,6 +17,11 @@ The ["How It Works"](http://moleculevisualizer.tech/works.html) page offers a te
 ## Visualizer
 The [Visualizer](http://moleculevisualizer.tech/visualizer.html) page is the core of the Molecule Visualizer application, allowing users to upload SDF files and visualize molecules. Users can upload molecules in SDF format, which are then saved in the database for future access. The page also provides a selection interface for choosing previously uploaded molecules to visualize. This makes it easy for users to interact with and explore various molecular structures and their properties.
 
+# Sample Molecule
+Here is a sample molecule (zinc phthalocyanine) visualized by the visualzier: 
+
+![Molecule Image](https://raw.githubusercontent.com/AMadharha/Dash/main/samples/molecuile.png "Sample Molecule")
+
 # Project Specifications
 * C (C99 Standard)
 * Python version 3.11.3
