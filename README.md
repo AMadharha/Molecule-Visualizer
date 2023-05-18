@@ -20,7 +20,7 @@ The [Visualizer](http://moleculevisualizer.tech/visualizer.html) page is the cor
 # Sample Molecule
 Here is a sample molecule (zinc phthalocyanine) visualized by the visualzier: 
 
-![Molecule Image](https://raw.githubusercontent.com/AMadharha/Dash/main/samples/molecuile.png "Sample Molecule")
+![Molecule Image](https://raw.githubusercontent.com/AMadharha/Molecule-Visualizer/main/samples/molecule.png "Sample Molecule")
 
 # Project Specifications
 * C (C99 Standard)
