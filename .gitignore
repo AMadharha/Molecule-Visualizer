@@ -167,4 +167,3 @@ cython_debug/
 
 *.sdf
 *.svg
-elements.py
