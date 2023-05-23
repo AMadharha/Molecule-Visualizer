@@ -5,3 +5,6 @@ make -C C-molecule-library libmol.so
 
 echo "-----> Running setup.py to build the C extension"
 python setup.py build_ext --inplace
+
+echo "-----> Running elements.py to populate elements in the database"
+python elements.py
